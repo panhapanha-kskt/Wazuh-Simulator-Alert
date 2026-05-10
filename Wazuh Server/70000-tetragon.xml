@@ -1,0 +1,50 @@
+<group name="tetragon,">
+  <rule id="700000" level="3">
+    <decoded_as>json</decoded_as>
+    <field name="process_exec.process.exec_id">\.*</field>
+    <options>no_full_log</options>
+ <group>process_exec,</group>
+ <description>Process execution detected.</description>
+  </rule>
+  <rule id="700001" level="3">
+    <decoded_as>json</decoded_as>
+    <field name="process_exit.process.exec_id">\.*</field>
+    <options>no_full_log</options>
+ <group>process_exit,</group>
+ <description>Process exit detected.</description>
+  </rule>
+  <rule id="700003" level="5">
+    <if_sid>700001</if_sid>
+    <field name="process_exit.status">\.*</field>
+    <options>no_full_log</options>
+ <group>process_exit,</group>
+ <description>Error in program exit code detected.</description>
+  </rule>
+  <rule id="700004" level="8">
+    <if_sid>700000</if_sid>
+    <field name="process_exec.process.binary">/usr/bin/sh|/usr/bin/bash|usr/bin/zsh</field>
+    <options>no_full_log</options>
+ <group>process_exec,</group>
+ <description>Possible shell execution in container.</description>
+  </rule>
+   <rule id="700005" level="7">
+    <if_sid>700000</if_sid>
+    <field name="process_exec.process.binary">/usr/bin/wget|/usr/bin/curl</field>
+    <options>no_full_log</options>
+ <group>process_exec,</group>
+ <description>Attempt to connect to remote web hosts.</description>
+  </rule>
+   <rule id="700006" level="7">
+    <if_sid>700000</if_sid>
+    <field name="process_exec.process.binary">/usr/bin/apt|/usr/bin/yum|/usr/bin/dpkg|/usr/bin/rpm|/usr/bin/apk</field>
+    <options>no_full_log</options>
+ <group>process_exec,</group>
+ <description>Attempt to install additional packages</description>
+  </rule>
+  <rule id="700002" level="3">
+    <decoded_as>json</decoded_as>
+    <field name="process_kprobe.process.exec_id">\.*</field>
+    <options>no_full_log</options>
+ <group>process_kprobe,</group>
+ <description>Kernel probe detected.</description>
+  </rule>
