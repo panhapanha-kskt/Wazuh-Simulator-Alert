@@ -1,8 +1,9 @@
 # SOC Attack Simulation Guide
-**CBSA Group 7 — Blue Team Operations Center**
 **For official SOC lab use only — controlled environment**
 
 ---
+### Proof of Concept for SOC Lab
+<img width="2559" height="1599" alt="image" src="https://github.com/user-attachments/assets/a51f739b-2e80-426b-992b-f691ca54a385" />
 
 ## Prerequisites
 
@@ -381,4 +382,3 @@ sudo iptables -D FORWARD -s 127.0.0.1 -j DROP 2>/dev/null
 
 ---
 
-*Auto-generated — CBSA Group 7 Blue Team · Wazuh SOC Defense Platform*
