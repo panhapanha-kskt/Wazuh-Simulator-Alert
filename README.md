@@ -1,4 +1,4 @@
-# Wazuh SOC Defense Platform v3
+# Wazuh SOC Defense 
 **SOC Project - Blue Team Operations Center**
 
 A fully automated, multi-source SOC (Security Operations Center) monitoring and
